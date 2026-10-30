@@ -238,6 +238,72 @@ footer{background:#111}
 .authCard:has(#authOtp:not([hidden])) .authClose{color:#111}
 @media(max-width:900px){.navlinks{gap:12px}.hero{min-height:570px;height:70vw}.hero h1{font-size:27vw}.heroPhoto{height:auto;background-size:auto 100%}.categoryStrip{gap:15px;padding:25px 4%}.categoryTile{grid-template-columns:70px 1fr;gap:12px}.categoryTile img{width:70px;height:90px}.editorialCopy{padding-left:9%}}
 @media(max-width:600px){.nav{height:65px;padding:0 4%;gap:8px}.navlinks{display:none}.brand{order:1;margin:0 auto 0 0;font-size:29px}.nav .iconbtn{order:2;font-size:10px!important;padding:7px 4px!important}.hero{height:650px;min-height:0}.hero h1{top:40%;font-size:29vw}.heroPhoto{background-size:auto 83%;background-position:center 65%}.hero .over{left:7%;top:8%;font-size:10px}.hero p{left:7%;bottom:20%;font-size:12px;max-width:175px}.hero .btn{left:7%;bottom:9%;padding:12px 18px;font-size:10px}.heroEdition{right:5%;bottom:10%;font-size:9px}.categoryStrip{grid-template-columns:1fr;gap:0;padding:12px 6%}.categoryTile{grid-template-columns:68px 1fr;gap:17px;padding:11px 0;border-bottom:1px solid #ffffff25}.categoryTile:last-child{border:0}.categoryTile img{width:68px;height:75px}.categoryTile span{gap:3px}.categoryTile em{margin-top:3px}.editorialBanner{min-height:460px;grid-template-columns:1fr}.editorialImage{position:absolute;inset:0 0 0 20%;opacity:.65;background-position:center}.editorialCopy{padding:50px 7%;justify-content:center;background:linear-gradient(90deg,#deddd9 0%,#deddd9d9 45%,transparent 100%)}.editorialCopy h2{font-size:clamp(64px,17vw,100px)}.serviceStrip{grid-template-columns:repeat(2,1fr);gap:23px;padding:27px 6%}.serviceStrip div{grid-template-columns:27px 1fr}.serviceStrip span{font-size:23px}.serviceStrip b{font-size:9px}.serviceStrip small{font-size:9px}.wrap{padding:60px 5vw}.grid{gap:12px;row-gap:30px}.authCard,.authCard:has(#authOtp:not([hidden])){box-shadow:5px 5px 0 #222}}
+
+/* NOVA / MOBILE REFINEMENT — keep desktop editorial direction */
+@media(max-width:700px){
+ body{overflow-x:hidden}
+ .top{font-size:9px;text-align:center;padding:8px 12px;letter-spacing:.07em}
+ .nav{height:64px;padding:0 17px;gap:6px}
+ .brand{font-size:clamp(25px,7vw,31px);flex:0 0 auto;letter-spacing:-.085em}
+ .nav .iconbtn{font-size:10px!important;padding:8px 5px!important;white-space:nowrap}
+ .hero{height:clamp(510px,133vw,620px);min-height:0;background:#e8e7e4}
+ .heroText{inset:0}
+ .hero .over{top:8%;left:6%;max-width:105px;font-size:9px;line-height:1.7;letter-spacing:.22em}
+ .hero h1{top:40%;font-size:29vw;letter-spacing:-.12em;width:100%;text-align:center}
+ .heroPhoto{inset:0;background-size:auto 83%;background-position:center 63%}
+ .hero p{bottom:18%;left:6%;max-width:155px;font-size:11px;line-height:1.5}
+ .hero .btn{bottom:7%;left:6%;font-size:9px;padding:12px 15px;letter-spacing:.08em}
+ .heroEdition{bottom:8%;right:5%;font-size:9px;letter-spacing:.12em;text-align:right}
+ .categoryStrip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;padding:17px 12px}
+ .categoryTile{display:flex;flex-direction:column;gap:8px;padding:0;border:0;min-width:0}
+ .categoryTile img{width:100%;height:clamp(90px,29vw,145px);object-fit:cover}
+ .categoryTile span{gap:3px;align-items:flex-start;width:100%}
+ .categoryTile b{font-size:11px}
+ .categoryTile small{font-size:9px;line-height:1.35}
+ .categoryTile em{font-size:8px;white-space:nowrap;margin-top:4px}
+ .editorialBanner{min-height:390px}
+ .editorialImage{inset:0 0 0 24%;background-position:55% center;opacity:.7}
+ .editorialCopy{padding:35px 6%;background:linear-gradient(90deg,#deddd9 0%,#deddd9f0 30%,#deddd97a 68%,transparent 100%)}
+ .editorialCopy .over{font-size:9px}
+ .editorialCopy h2{font-size:clamp(59px,16vw,89px);margin:18px 0}
+ .editorialCopy p{font-size:12px;max-width:160px}
+ .editorialCopy .btn{padding:12px 14px;font-size:9px}
+ .serviceStrip{grid-template-columns:repeat(2,minmax(0,1fr));padding:23px 6%;gap:18px}
+ .serviceStrip div{grid-template-columns:25px 1fr;column-gap:8px}
+ .serviceStrip b{font-size:9px}
+ .serviceStrip small{font-size:9px}
+ .wrap{padding:54px 5% 75px}
+ .sectionhead{display:flex;flex-direction:column;align-items:stretch;gap:17px;margin-bottom:20px}
+ .sectionhead h2{font-size:clamp(34px,10vw,52px)}
+ .search{width:100%;max-width:none;font-size:13px}
+ .filters{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:0 -5vw 24px;padding:0 5vw 9px;scrollbar-width:none}
+ .filters::-webkit-scrollbar{display:none}
+ .filter{flex:0 0 auto;font-size:10px;padding:9px 14px;white-space:nowrap}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;row-gap:28px}
+ .photo{aspect-ratio:3/4}
+ .product h3{font-size:13px;line-height:1.35;margin-top:10px}
+ .product .meta{font-size:9px}
+ .price{font-size:14px;margin:7px 0 9px}
+ .variant{gap:5px}
+ .variant select{font-size:11px;padding:8px 3px;min-width:0}
+ .add{font-size:10px;padding:10px 5px;min-height:40px}
+ .tag{font-size:9px;top:8px;left:8px;padding:5px 7px}
+ .story{grid-template-columns:1fr}
+ .storyImg{height:280px}
+ .storyText{padding:40px 7%}
+ .story h2{font-size:clamp(42px,11vw,60px)}
+ footer{padding:42px 6% 24px}
+ .footgrid{gap:22px}
+ .drawer{padding:19px}
+ .authOverlay{padding:14px}
+ .authCard,.authCard:has(#authOtp:not([hidden])){width:100%;max-height:90dvh;padding:35px 22px}
+}
+@media(max-width:370px){
+ .nav{padding:0 10px}.brand{font-size:24px}.nav .iconbtn{font-size:9px!important}
+ .heroEdition{font-size:8px}.hero p{max-width:135px}
+ .categoryTile small{display:none}
+ .categoryTile img{height:92px}
+}
 </style></head><body><div class="top" id="announcement">NEW SEASON / NOVA SHOP</div><header class="nav"><a href="#" class="brand" id="brand">NOVA SHOP</a><nav class="navlinks"><a href="#shop">SHOP ALL</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav><button id="accountBtn" class="iconbtn" type="button">НЭВТРЭХ</button><button id="cartBtn" class="iconbtn" aria-label="Сагс нээх">BAG (<span id="count">0</span>)</button></header><main>
 <section class="hero" aria-label="NOVA шинэ коллекц"><div class="heroText"><span class="over">FASHION THAT MOVES WITH YOU.</span><h1 id="heroTitle">NOVA</h1><p id="heroSubtitle">Шинэ үеийн өөрийн хэв маяг. Everyday essentials, redefined.</p><a class="btn" href="#shop">SHOP THE COLLECTION</a><span class="heroEdition">NEW COLLECTION<br>2026 — 27</span></div><div class="heroPhoto" id="heroPhoto"></div></section>
 <section class="categoryStrip" aria-label="Коллекцийн ангиллууд">
