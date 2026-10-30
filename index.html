@@ -423,6 +423,11 @@ footer{background:#282522}
  .product .add{min-height:43px;border-radius:7px}
  .authCard,.authCard:has(#authOtp:not([hidden])){box-shadow:5px 5px 0 #eec5b4}
 }
+
+/* Keep the opening fashion photograph unobstructed */
+.hero .heroText h1,.hero .heroText .over,.hero .heroText p,.hero .heroText .heroEdition{display:none!important}
+.hero .heroText .btn{left:6%;bottom:6%;z-index:3;background:#242321;color:#fff;border:1px solid #242321}
+@media(max-width:700px){.hero .heroText .btn{left:6%;bottom:5%;padding:12px 17px}}
 </style></head><body><div class="top" id="announcement">NEW SEASON / NOVA SHOP</div><header class="nav"><a href="#" class="brand" id="brand">NOVA SHOP</a><nav class="navlinks"><a href="#shop">SHOP ALL</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav><button id="accountBtn" class="iconbtn" type="button">НЭВТРЭХ</button><button id="cartBtn" class="iconbtn" aria-label="Сагс нээх">BAG (<span id="count">0</span>)</button></header><main>
 <section class="hero" aria-label="NOVA шинэ коллекц"><div class="heroText"><span class="over">MADE FOR YOUR EVERYDAY.</span><h1 id="heroTitle">NOVA</h1><p id="heroSubtitle">Шинэ үеийн өөрийн хэв маяг. Everyday essentials, redefined.</p><a class="btn" href="#shop">SHOP THE COLLECTION</a><span class="heroEdition">NEW DROP<br>EST. 2026</span></div><div class="heroPhoto" id="heroPhoto"></div></section>
 <section class="categoryStrip" aria-label="Коллекцийн ангиллууд">
