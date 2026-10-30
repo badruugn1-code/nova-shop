@@ -110,7 +110,7 @@ body{background:#fff9ed;color:#1c2156;font-family:'DM Sans',Arial,sans-serif}
 .hero .btn:hover{background:#fff9ed;color:#2838e6;transform:translate(3px,3px);box-shadow:4px 4px 0 #ff6b3d}
 .heroPhoto{filter:none;background-image:url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=1500&q=85');background-position:center 25%;background-color:#ffb29b;position:relative}
 .heroPhoto:before{content:'NEW\\A ENERGY';white-space:pre;position:absolute;top:28px;right:24px;background:#fff9ed;color:#2838e6;border:2px solid #2838e6;border-radius:50%;width:120px;height:120px;display:grid;place-content:center;text-align:center;font:900 21px/1.05 'Archivo Black',Impact,sans-serif;transform:rotate(13deg);z-index:1;box-shadow:5px 5px 0 #ff6b3d}
-.heroPhoto:after{content:'NOT HERE TO BLEND IN  ↗';left:0;bottom:25px;background:#ff6b3d;color:#1b2051;font-weight:900;font-size:11px;letter-spacing:.14em;padding:15px 22px}
+.heroPhoto:after{content:'NOVA / YOUR EVERYDAY';left:0;bottom:25px;background:#ff6b3d;color:#1b2051;font-weight:900;font-size:11px;letter-spacing:.14em;padding:15px 22px}
 .perks{background:#ff6b3d;color:#1c2156;border-top:2px solid #2838e6;border-bottom:2px solid #2838e6;grid-template-columns:repeat(3,1fr)}
 .perks div{border-right:2px solid #2838e6;font-size:12px;font-weight:900;letter-spacing:.09em;padding:20px 10px}
 .wrap{padding-top:90px;padding-bottom:110px}
@@ -346,8 +346,85 @@ footer{background:#111}
  .product .add{font-size:10px;min-height:42px;padding:8px 2px}
  .tag{font-size:8px;padding:4px 6px}
 }
+
+/* NOVA SOFT STREET — warmer, youthful fashion boutique */
+:root{--nova-soft:#f8f5ef;--nova-charcoal:#242321;--nova-peach:#eec5b4;--nova-lilac:#e9e4f4}
+body{background:var(--nova-soft);color:var(--nova-charcoal)}
+.top{background:#252421;color:#f8f5ef;text-align:center;letter-spacing:.14em}
+.nav{background:#f8f5ef;border-bottom:1px solid #e8e2d9}
+.brand{font-weight:800;letter-spacing:-.085em}
+.nav .iconbtn{border:1px solid #ded8cf!important;border-radius:99px!important;padding:10px 15px!important;background:#fffdf9!important;transition:background .2s!important}
+.nav .iconbtn:hover{background:#eec5b4!important;color:#252421!important}
+.navlinks a{font-weight:700;color:#34312e}
+.hero{background:#e8e4df}
+.heroText{color:#242321}
+.hero h1{font-weight:800;color:#242321;letter-spacing:-.105em}
+.heroPhoto{filter:grayscale(65%);mix-blend-mode:multiply}
+.hero .over{color:#36332f}
+.hero .btn{background:#252421;color:#fff;border:1px solid #252421;border-radius:99px;padding:15px 24px;box-shadow:none}
+.hero .btn:hover{background:#eec5b4;color:#252421}
+.heroEdition{color:#3a3530}
+.categoryStrip{background:#272523;gap:20px;padding:27px 7%}
+.categoryTile{border-radius:5px;transition:transform .2s}
+.categoryTile:hover{transform:translateY(-3px)}
+.categoryTile img{border-radius:4px;filter:grayscale(65%)}
+.categoryTile b{letter-spacing:.08em}
+.categoryTile em{color:#eec5b4;text-decoration:none;font-weight:700}
+.editorialBanner{background:#e6e0d8;min-height:450px}
+.editorialCopy h2{font-weight:800;letter-spacing:-.08em}
+.editorialCopy .btn{background:#252421;border-radius:99px;padding:14px 22px}
+.editorialImage{filter:grayscale(65%);opacity:.95}
+.serviceStrip{background:#f0ece6;border-color:#e3ddd5}
+.serviceStrip span{color:#a78278}
+.wrap{padding-top:78px}
+.sectionhead h2{color:#262421;letter-spacing:-.06em}
+.sectionhead .over{color:#a77970}
+.shopIntro{color:#706c68}
+.search{border:1px solid #e2dcd5;border-radius:12px;background:#fffdf9;box-shadow:0 3px 14px #22222205}
+.filter{border:1px solid #e2dbd3;border-radius:99px;background:#fffdf9;color:#36312d}
+.filter:hover{background:#f4e3db}
+.filter.on{background:#292624;border-color:#292624;color:#fff}
+.product{border:1px solid #eee8e1;background:#fffdf9;border-radius:13px;overflow:hidden;box-shadow:0 7px 24px #32261e0a;transition:transform .2s,box-shadow .2s}
+.product:hover{transform:translateY(-4px);box-shadow:0 14px 30px #32261e16}
+.photo{border-radius:0;background:#f0eae4}
+.photo img{filter:saturate(.82)}
+.tag{background:#f5e3da;color:#493b35;border:0;border-radius:99px;top:12px;left:12px}
+.product h3{color:#292624}
+.price{color:#292624}
+.variantField select{border-color:#e3dcd5;background:#fff;border-radius:8px}
+.product .add{background:#292624;color:#fff;border:1px solid #292624;border-radius:9px;min-height:47px}
+.product .add:hover{background:#eec5b4;color:#292624;border-color:#eec5b4}
+footer{background:#282522}
+.drawer{border-left:1px solid #eee4da}
+.drawer .btn{background:#292624;border-color:#292624}
+.authCard,.authCard:has(#authOtp:not([hidden])){background:#fffaf4;border:1px solid #e3d6cc;box-shadow:9px 9px 0 #eec5b4;border-radius:18px}
+.authCard h2,.authCard:has(#authOtp:not([hidden])) h2{color:#282522}
+.authCard .over,.authCard:has(#authOtp:not([hidden])) .over{color:#9e6d61}
+.authCard input,.authCard #authOtp:not([hidden]){border:1px solid #ded6cf;border-radius:9px}
+.authCard form .btn,.authCard:has(#authOtp:not([hidden])) #authSubmit{background:#282522;border-color:#282522;border-radius:9px}
+@media(max-width:700px){
+ .nav{background:#f8f5ef}
+ .nav .iconbtn{padding:8px 7px!important;border:0!important;background:transparent!important}
+ .hero{background:#e8e4df}
+ .hero h1{font-size:29vw}
+ .heroPhoto{filter:grayscale(65%)}
+ .hero .btn{border-radius:99px;padding:13px 18px}
+ .categoryStrip{gap:10px;padding:16px 12px}
+ .categoryTile img{border-radius:5px}
+ .categoryTile em{font-size:8px}
+ .editorialBanner{min-height:370px}
+ .editorialCopy{background:linear-gradient(90deg,#e6e0d8 0%,#e6e0d8eb 38%,#e6e0d866 75%,transparent)}
+ .serviceStrip{background:#f0ece6}
+ .wrap{padding-top:55px}
+ .grid{gap:11px;row-gap:18px}
+ .product{border-radius:10px;box-shadow:0 4px 12px #32261e08}
+ .product:hover{transform:none}
+ .tag{top:7px;left:7px;font-size:8px}
+ .product .add{min-height:43px;border-radius:7px}
+ .authCard,.authCard:has(#authOtp:not([hidden])){box-shadow:5px 5px 0 #eec5b4}
+}
 </style></head><body><div class="top" id="announcement">NEW SEASON / NOVA SHOP</div><header class="nav"><a href="#" class="brand" id="brand">NOVA SHOP</a><nav class="navlinks"><a href="#shop">SHOP ALL</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav><button id="accountBtn" class="iconbtn" type="button">НЭВТРЭХ</button><button id="cartBtn" class="iconbtn" aria-label="Сагс нээх">BAG (<span id="count">0</span>)</button></header><main>
-<section class="hero" aria-label="NOVA шинэ коллекц"><div class="heroText"><span class="over">FASHION THAT MOVES WITH YOU.</span><h1 id="heroTitle">NOVA</h1><p id="heroSubtitle">Шинэ үеийн өөрийн хэв маяг. Everyday essentials, redefined.</p><a class="btn" href="#shop">SHOP THE COLLECTION</a><span class="heroEdition">NEW COLLECTION<br>2026 — 27</span></div><div class="heroPhoto" id="heroPhoto"></div></section>
+<section class="hero" aria-label="NOVA шинэ коллекц"><div class="heroText"><span class="over">MADE FOR YOUR EVERYDAY.</span><h1 id="heroTitle">NOVA</h1><p id="heroSubtitle">Шинэ үеийн өөрийн хэв маяг. Everyday essentials, redefined.</p><a class="btn" href="#shop">SHOP THE COLLECTION</a><span class="heroEdition">NEW DROP<br>EST. 2026</span></div><div class="heroPhoto" id="heroPhoto"></div></section>
 <section class="categoryStrip" aria-label="Коллекцийн ангиллууд">
 <a class="categoryTile" href="#shop"><img loading="lazy" src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=350&q=85" alt="Эрэгтэй загвар"><span><b>MEN</b><small>Everyday essentials</small><em>SHOP MEN ↗</em></span></a>
 <a class="categoryTile" href="#shop"><img loading="lazy" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=350&q=85" alt="Эмэгтэй загвар"><span><b>WOMEN</b><small>Modern silhouettes</small><em>SHOP WOMEN ↗</em></span></a>
