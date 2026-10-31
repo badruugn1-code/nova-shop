@@ -618,8 +618,28 @@ function novaChatReply(question){let q=question.toLocaleLowerCase();if(/(хол�
 const novaChatTopics=['👤 Админтай чатлах','📦 Захиалга шалгах','🚚 Хүргэлт','📏 Размер','💳 Төлбөр','☎️ Холбогдох'];
 $('novaChatSuggestions').replaceChildren(...novaChatTopics.map(t=>{let b=document.createElement('button');b.type='button';b.textContent=t;b.onclick=()=>{novaChatBubble(t,'user');if(t.includes('Админтай'))novaChatHumanContact();else novaChatRespond(t)};return b}));
 const novaSuggestionStrip=$('novaChatSuggestions');
-// Keep each quick-reply option exactly once; users can swipe horizontally to see all six.
+// Six unique options only; auto-scroll back and forth without cloning buttons.
 novaSuggestionStrip.setAttribute('aria-label','Чатын хурдан сонголтууд');
+let novaSuggestionPaused=false,novaSuggestionDirection=1,novaSuggestionLast=0,novaSuggestionHoldUntil=0;
+novaSuggestionStrip.addEventListener('mouseenter',()=>novaSuggestionPaused=true);
+novaSuggestionStrip.addEventListener('mouseleave',()=>novaSuggestionPaused=false);
+novaSuggestionStrip.addEventListener('focusin',()=>novaSuggestionPaused=true);
+novaSuggestionStrip.addEventListener('focusout',()=>novaSuggestionPaused=false);
+novaSuggestionStrip.addEventListener('touchstart',()=>novaSuggestionPaused=true,{passive:true});
+novaSuggestionStrip.addEventListener('touchend',()=>{novaSuggestionPaused=false;novaSuggestionHoldUntil=performance.now()+1800},{passive:true});
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  function novaAnimateSuggestions(now){
+    const delta=novaSuggestionLast?Math.min(now-novaSuggestionLast,50):0;novaSuggestionLast=now;
+    const max=novaSuggestionStrip.scrollWidth-novaSuggestionStrip.clientWidth;
+    if(!novaChatPanel.hidden&&!novaSuggestionPaused&&now>novaSuggestionHoldUntil&&max>2){
+      novaSuggestionStrip.scrollLeft+=novaSuggestionDirection*delta*.045;
+      if(novaSuggestionStrip.scrollLeft>=max-1){novaSuggestionDirection=-1;novaSuggestionHoldUntil=now+900}
+      else if(novaSuggestionStrip.scrollLeft<=1){novaSuggestionDirection=1;novaSuggestionHoldUntil=now+900}
+    }
+    requestAnimationFrame(novaAnimateSuggestions);
+  }
+  requestAnimationFrame(novaAnimateSuggestions);
+}
 
 $('novaHelpLink').onclick=()=>{let open=novaChatPanel.hidden;novaChatPanel.hidden=!open;$('novaHelpLink').setAttribute('aria-expanded',String(open));if(open){novaCheckChatReplies();novaLoadFaq();if(!novaChatMessages.children.length)novaChatBubble('Сайн байна уу! 👋 NOVA SHOP-д тавтай морил. Доорх сонголтуудаас дарж болно, эсвэл асуултаа шууд бичээрэй. Админтай холбогдох бол «Админтай чатлах»-ыг сонгоорой. 💚');$('novaChatInput').focus()}};
 $('novaChatClose').onclick=()=>{novaChatPanel.hidden=true;$('novaHelpLink').setAttribute('aria-expanded','false');$('novaHelpLink').focus()};
