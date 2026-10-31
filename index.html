@@ -625,6 +625,28 @@ novaSuggestionStrip.addEventListener('mouseenter',()=>novaSuggestionPaused=true)
 novaSuggestionStrip.addEventListener('mouseleave',()=>novaSuggestionPaused=false);
 novaSuggestionStrip.addEventListener('focusin',()=>novaSuggestionPaused=true);
 novaSuggestionStrip.addEventListener('focusout',()=>novaSuggestionPaused=false);
+// Desktop: hold the mouse button and drag the suggestion strip horizontally.
+let novaDragStartX=0,novaDragStartScroll=0,novaDragging=false,novaDragMoved=false;
+novaSuggestionStrip.style.cursor='grab';
+novaSuggestionStrip.addEventListener('pointerdown',e=>{
+  if(e.pointerType!=='mouse'||e.button!==0)return;
+  novaDragging=true;novaDragMoved=false;novaDragStartX=e.clientX;
+  novaDragStartScroll=novaSuggestionStrip.scrollLeft;
+  novaSuggestionPaused=true;novaSuggestionStrip.style.cursor='grabbing';
+});
+window.addEventListener('pointermove',e=>{
+  if(!novaDragging)return;
+  const dx=e.clientX-novaDragStartX;
+  if(Math.abs(dx)>5){novaDragMoved=true;novaSuggestionStrip.scrollLeft=novaDragStartScroll-dx}
+});
+window.addEventListener('pointerup',()=>{
+  if(!novaDragging)return;
+  novaDragging=false;novaSuggestionStrip.style.cursor='grab';
+  novaSuggestionPaused=false;novaSuggestionHoldUntil=performance.now()+2200;
+});
+novaSuggestionStrip.addEventListener('click',e=>{
+  if(novaDragMoved){e.preventDefault();e.stopPropagation();novaDragMoved=false}
+},true);
 novaSuggestionStrip.addEventListener('touchstart',()=>novaSuggestionPaused=true,{passive:true});
 novaSuggestionStrip.addEventListener('touchend',()=>{novaSuggestionPaused=false;novaSuggestionHoldUntil=performance.now()+1800},{passive:true});
 if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
