@@ -661,72 +661,89 @@ html{scroll-behavior:smooth}body{padding-bottom:calc(86px + env(safe-area-inset-
 .product .vantaProductStatus .vantaStockInfo{background:#fff;border-color:#eae6e1}
 @media(max-width:700px){.product .vantaProductStatus{gap:5px;margin:7px 0 2px}.product .vantaProductStatus .preorderEta,.product .vantaProductStatus .vantaStockInfo{font-size:9px;padding:5px 7px}}
 </style>
-<style id="vanta-editorial-2026">
-/* VANTA EDITORIAL — isolated visual refresh, no checkout or admin changes */
-:root{--vanta-paper:#f8f8f6;--vanta-ink:#171717;--vanta-line:#e7e7e3}
-body{background:var(--vanta-paper);color:var(--vanta-ink)}
-.top{background:#171717!important;color:#fff!important;letter-spacing:.14em!important;font-size:10px!important;font-weight:600!important;padding:9px 12px!important}
-.nav{background:#fff!important;border-bottom:1px solid var(--vanta-line)!important;box-shadow:none!important}
-.brand{color:#111!important;letter-spacing:-.065em!important;font-weight:900!important}
+<style id="vanta-smooth-2026">
+/* VANTA SMOOTH: storefront-only visual layer. All existing commerce logic remains. */
+:root{--vs-bg:#f6f5f2;--vs-ink:#20201f;--vs-muted:#777773;--vs-line:#e8e6e2;--vs-ease:cubic-bezier(.22,1,.36,1)}
+html{scroll-behavior:smooth;scroll-padding-top:95px}
+body{background:var(--vs-bg);color:var(--vs-ink);-webkit-font-smoothing:antialiased}
+.top{background:#20201f!important;color:#f8f7f4!important;letter-spacing:.12em!important;font-size:10px!important;padding:10px 12px!important;font-weight:600!important}
+.nav{background:#fdfcfbf2!important;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid #eae8e4!important;box-shadow:none!important;transition:background .4s var(--vs-ease)!important}
+.brand{font-weight:850!important;letter-spacing:-.075em!important;color:#20201f!important}
 .brand:after{content:none!important}
-.novaTrustBar{background:#fff!important;border-bottom:1px solid var(--vanta-line)!important;color:#777!important;font-size:11px!important;letter-spacing:.025em!important}
-.novaCleanIntro{background:#ededeb!important;color:#151515!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:hidden!important;position:relative!important}
-.novaCleanIntro:before{content:"V";position:absolute;right:-.02em;bottom:-.32em;font:900 clamp(300px,55vw,840px)/1 Arial,sans-serif;letter-spacing:-.16em;color:#15151508;pointer-events:none}
-.novaCleanTop{position:relative;z-index:1;border-bottom:1px solid #1515151c!important;color:#555!important;letter-spacing:.14em!important}
-.novaCleanContent{position:relative;z-index:1;padding-top:clamp(45px,7vw,105px)!important;padding-bottom:clamp(52px,8vw,120px)!important}
-.novaCleanEyebrow{color:#555!important;letter-spacing:.23em!important;font-weight:700!important}
-.novaCleanContent h1{font-family:'Space Grotesk','DM Sans',Arial,sans-serif!important;font-weight:800!important;font-size:clamp(58px,10.5vw,156px)!important;line-height:.85!important;letter-spacing:-.095em!important;text-transform:uppercase!important;max-width:1050px!important;margin:26px 0 30px!important}
-.novaCleanContent h1 em{font-style:normal!important;color:#8a8a86!important}
-.novaCleanContent p{color:#555!important;font-size:clamp(14px,1.45vw,18px)!important;line-height:1.65!important;max-width:460px!important}
-.novaCleanShop{background:#171717!important;color:white!important;border:1px solid #171717!important;border-radius:2px!important;box-shadow:none!important;letter-spacing:.08em!important}
-.novaCleanShop:hover{background:#333!important}
-.novaCleanMore{color:#333!important}
-.novaHowItWorks.novaStepsV2{background:#fff!important;border:0!important;border-bottom:1px solid var(--vanta-line)!important;box-shadow:none!important;gap:0!important}
-.novaStepsV2 .novaStep{background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;border-right:1px solid var(--vanta-line)!important}
+.nav .iconbtn{transition:background .3s var(--vs-ease),transform .35s var(--vs-ease)!important}
+.nav .iconbtn:hover{transform:translateY(-2px);background:#efeeeb!important}
+.novaTrustBar{background:#fdfcfb!important;border-bottom:1px solid var(--vs-line)!important;color:#777!important;font-size:11px!important;letter-spacing:.025em!important}
+.novaCleanIntro{position:relative!important;overflow:hidden!important;isolation:isolate;background:linear-gradient(128deg,#eae7e2 0%,#f4f2ee 46%,#e4e0d9 100%)!important;color:#20201f!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+.novaCleanIntro:before{content:"";position:absolute;z-index:-1;width:clamp(290px,56vw,780px);height:clamp(290px,56vw,780px);right:-12%;top:-24%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff9 0%,#ddd8cf55 48%,#d5d0c500 72%);filter:blur(5px);pointer-events:none}
+.novaCleanIntro:after{content:"V";position:absolute;z-index:-1;right:3%;bottom:-.28em;font:800 clamp(270px,44vw,690px)/1 'Space Grotesk',Arial,sans-serif;letter-spacing:-.12em;color:#fff6;pointer-events:none;transform:rotate(-8deg)}
+.novaCleanTop{position:relative;z-index:1;border-bottom:1px solid #2222!important;color:#67645e!important;letter-spacing:.15em!important}
+.novaCleanContent{position:relative;z-index:1;padding-top:clamp(70px,9vw,138px)!important;padding-bottom:clamp(85px,10vw,155px)!important}
+.novaCleanEyebrow{display:inline-block;color:#66635e!important;letter-spacing:.23em!important;font-weight:700!important}
+.novaCleanContent h1{font-family:'Space Grotesk','DM Sans',Arial,sans-serif!important;font-weight:750!important;font-size:clamp(62px,10.2vw,155px)!important;line-height:.9!important;letter-spacing:-.09em!important;max-width:1100px!important;margin:27px 0 30px!important;text-transform:uppercase!important;animation:vsRise .95s var(--vs-ease) both}
+.novaCleanContent h1 em{font-style:normal!important;color:#a6a099!important}
+.novaCleanContent p{color:#66625e!important;font-size:clamp(14px,1.4vw,18px)!important;line-height:1.8!important;max-width:440px!important;animation:vsRise 1s .12s var(--vs-ease) both}
+.novaCleanActions{animation:vsRise 1s .2s var(--vs-ease) both}
+.novaCleanShop{background:#222220!important;color:#fff!important;border:1px solid #222220!important;border-radius:100px!important;box-shadow:none!important;padding:16px 27px!important;transition:transform .4s var(--vs-ease),background .3s ease,box-shadow .4s var(--vs-ease)!important}
+.novaCleanShop:hover{transform:translateY(-3px)!important;background:#3d3c38!important;box-shadow:0 14px 30px #20201f20!important}
+.novaCleanMore{color:#494640!important;transition:opacity .25s!important}
+.novaCleanMore:hover{opacity:.55}
+.novaHowItWorks.novaStepsV2{background:#fbfaf8!important;border:0!important;border-bottom:1px solid var(--vs-line)!important;box-shadow:none!important;gap:0!important}
+.novaStepsV2 .novaStep{background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;border-right:1px solid var(--vs-line)!important;transition:background .35s var(--vs-ease)!important}
+.novaStepsV2 .novaStep:hover{background:#f2f0ec!important}
 .novaStepsV2 .novaStep:last-child{border-right:0!important}
-.novaStepsV2 .novaStepIcon{background:#f2f2f0!important;color:#222!important;border-radius:50%!important}
-.novaStepsV2 .novaStepText small{color:#777!important}
-.novaStepsV2 .novaStepText p{color:#171717!important}
-.novaStepsV2 .novaStepText span{color:#777!important}
-#shop{background:var(--vanta-paper)!important}
-#shop .sectionhead h2{font-family:'Space Grotesk',Arial,sans-serif!important;letter-spacing:-.075em!important;font-weight:750!important}
-#shop .sectionhead .over{color:#777!important;letter-spacing:.19em!important}
-#shop .shopIntro{color:#777!important}
-#shop .filter{border:1px solid #dededb!important;border-radius:4px!important;background:#fff!important;color:#333!important;box-shadow:none!important}
-#shop .filter.on{background:#171717!important;color:#fff!important;border-color:#171717!important}
-#shop .search{background:#fff!important;border:1px solid #dededb!important;border-radius:4px!important;box-shadow:none!important}
-#shop .grid{column-gap:clamp(12px,2vw,26px)!important;row-gap:36px!important}
-#shop .product{background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important}
-#shop .photo{background:#ededeb!important;border-radius:3px!important;box-shadow:none!important}
-#shop .photo img{filter:none!important;object-fit:cover!important}
-#shop .product h3{font-size:clamp(13px,1.25vw,16px)!important;letter-spacing:-.025em!important;color:#171717!important}
-#shop .product .meta{color:#888!important}
-#shop .product .price{color:#171717!important;font-weight:800!important}
-#shop .product .tag{background:#fff!important;color:#171717!important;border-radius:3px!important;box-shadow:none!important}
-#shop .product .variantField select{border:1px solid #dededb!important;border-radius:4px!important;background:#fff!important;color:#171717!important}
-#shop .product .add{background:#171717!important;color:#fff!important;border:1px solid #171717!important;border-radius:4px!important;box-shadow:none!important}
-#shop .product .add:hover{background:#444!important}
-#shop .product .add:disabled{background:#dededb!important;color:#777!important;border-color:#dededb!important}
-#shop .vantaProductStatus .preorderEta,#shop .vantaProductStatus .vantaStockInfo{border-radius:4px!important;box-shadow:none!important}
+.novaStepsV2 .novaStepIcon{background:#eceae6!important;color:#35332f!important;border-radius:50%!important}
+.novaStepsV2 .novaStepText small{color:#99958e!important}
+.novaStepsV2 .novaStepText p{color:#262522!important}
+.novaStepsV2 .novaStepText span{color:#8b8882!important}
+#shop{background:var(--vs-bg)!important}
+#shop .sectionhead h2{font-family:'Space Grotesk',Arial,sans-serif!important;font-weight:750!important;letter-spacing:-.07em!important}
+#shop .sectionhead .over{color:#8d8983!important;letter-spacing:.18em!important}
+#shop .shopIntro{color:#8d8983!important}
+#shop .search{background:#fff!important;border:1px solid #e6e3de!important;border-radius:12px!important;box-shadow:none!important;transition:border-color .25s!important}
+#shop .search:focus{outline:2px solid #aaa59d55!important;border-color:#99938b!important}
+#shop .filter{background:#fff!important;color:#55514d!important;border:1px solid #e6e3de!important;border-radius:100px!important;box-shadow:none!important;transition:background .3s,color .3s,transform .3s var(--vs-ease)!important}
+#shop .filter:hover{transform:translateY(-2px)}
+#shop .filter.on{background:#272624!important;color:#fff!important;border-color:#272624!important}
+#shop .grid{column-gap:clamp(12px,2vw,26px)!important;row-gap:42px!important}
+#shop .product{background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important;transition:transform .55s var(--vs-ease)!important}
+#shop .product:hover{transform:translateY(-5px)}
+#shop .photo{background:#eae8e3!important;border-radius:15px!important;box-shadow:none!important;overflow:hidden!important}
+#shop .photo img{object-fit:cover!important;filter:none!important;transition:transform .8s var(--vs-ease)!important}
+#shop .product:hover .photo img{transform:scale(1.055)!important}
+#shop .product h3{font-size:clamp(13px,1.2vw,16px)!important;letter-spacing:-.025em!important;color:#292824!important}
+#shop .product .meta{color:#96928c!important}
+#shop .product .price{color:#292824!important;font-weight:800!important}
+#shop .product .tag{background:#fffefaeb!important;color:#262522!important;border-radius:100px!important;box-shadow:0 3px 10px #0000000d!important}
+#shop .product .variant select{background:#fff!important;border:1px solid #e7e4de!important;border-radius:9px!important}
+#shop .product .add{background:#252421!important;color:#fff!important;border:1px solid #252421!important;border-radius:10px!important;box-shadow:none!important;transition:transform .3s var(--vs-ease),background .3s!important}
+#shop .product .add:hover{background:#48443e!important;transform:translateY(-2px)}
+#shop .product .add:disabled{background:#e5e2dd!important;color:#888!important;border-color:#e5e2dd!important}
+#shop .vantaProductStatus .preorderEta,#shop .vantaProductStatus .vantaStockInfo{border-radius:100px!important;background:#eeece8!important;border:1px solid #e3e0da!important;color:#66625d!important}
+.novaMobileNav{background:#fffefbf2!important;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 -8px 35px #27241d0c!important;border-top:1px solid #eae7e2!important}
+.novaMobileNav a,.novaMobileNav button{transition:transform .3s var(--vs-ease),background .3s!important}
+.novaMobileNav a:active,.novaMobileNav button:active{transform:scale(.95)}
+@keyframes vsRise{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:700px){
- .nav{box-shadow:none!important}
  .novaCleanIntro{margin:0!important;border-radius:0!important}
- .novaCleanIntro:before{font-size:350px;right:-30px;bottom:-90px}
- .novaCleanTop{padding:15px 22px!important;font-size:9px!important}
- .novaCleanContent{padding:60px 22px 66px!important}
- .novaCleanContent h1{font-size:clamp(58px,15vw,92px)!important;line-height:.89!important;margin:22px 0 25px!important}
- .novaCleanContent p{font-size:14px!important;max-width:320px!important}
+ .novaCleanIntro:before{width:360px;height:360px;right:-170px;top:-80px}
+ .novaCleanIntro:after{font-size:310px;right:-40px;bottom:-55px}
+ .novaCleanTop{padding:14px 22px!important;font-size:9px!important}
+ .novaCleanContent{padding:73px 22px 82px!important}
+ .novaCleanContent h1{font-size:clamp(60px,15vw,92px)!important;line-height:.91!important;margin:24px 0!important}
+ .novaCleanContent p{font-size:14px!important;max-width:310px!important;line-height:1.7!important}
  .novaCleanActions{gap:15px!important}
- .novaCleanShop{min-height:48px!important}
- .novaHowItWorks.novaStepsV2{display:grid!important;grid-template-columns:1fr!important;padding:0 20px!important}
- .novaStepsV2 .novaStep{padding:15px 0!important;border-right:0!important;border-bottom:1px solid var(--vanta-line)!important;min-height:0!important}
+ .novaCleanShop{min-height:50px!important;padding:14px 24px!important}
+ .novaHowItWorks.novaStepsV2{display:grid!important;grid-template-columns:1fr!important;padding:0 22px!important}
+ .novaStepsV2 .novaStep{padding:16px 0!important;border-right:0!important;border-bottom:1px solid var(--vs-line)!important;min-height:0!important}
  .novaStepsV2 .novaStep:last-child{border-bottom:0!important}
  .novaStepsV2 .novaStepIcon{width:42px!important;height:42px!important;min-width:42px!important}
- #shop{padding-top:55px!important}
- #shop .grid{gap:24px 12px!important}
- #shop .product .add{min-height:43px!important}
+ #shop{padding-top:56px!important}
+ #shop .grid{gap:30px 12px!important}
+ #shop .photo{border-radius:10px!important}
+ #shop .product:hover{transform:none}
+ #shop .product .add{min-height:44px!important;border-radius:8px!important}
 }
-@media(prefers-reduced-motion:reduce){#shop .photo img{transition:none!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
 </head><body><div class="novaScrollProgress" id="novaScrollProgress" aria-hidden="true"></div><div class="top" id="announcement">NEW SEASON / VANTA SHOP</div><header class="nav"><a href="#" class="brand" id="brand">VANTA SHOP</a><nav class="navlinks"><a href="#shop">SHOP ALL</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav><button id="wishlistBtn" class="iconbtn wishlistNav" type="button" aria-label="Дуртай бараанууд">♡ <span id="wishlistCount">0</span></button><button id="novaVipNavBtn" class="iconbtn novaVipNavBtn" type="button">👑 VIP CLUB</button><button id="accountBtn" class="iconbtn" type="button">НЭВТРЭХ</button><button id="cartBtn" class="iconbtn" aria-label="Сагс нээх">BAG (<span id="count">0</span>)</button></header><nav class="novaMobileNav" aria-label="Утасны үндсэн цэс"><a href="#shop" class="novaNavShop" aria-label="Бараа"><span>⌕</span><b>Бараа</b></a><button type="button" id="mobileFavorites"><span>♡</span><b>Дуртай</b></button><button type="button" id="mobileCart"><span>▣</span><b>Сагс</b><small id="mobileCartCount">0</small></button><button type="button" id="mobileVipBtn"><span>♛</span><b>VIP CLUB</b></button><button type="button" id="mobileAccount"><span>♙</span><b>Миний VANTA</b></button></nav><div class="novaTrustBar"><span>✦ VANTA SHOP</span> · Таны стиль, таны сонголт · Онлайн захиалга</div><main>
 <section class="novaCleanIntro" aria-label="VANTA SHOP танилцуулга"><div class="novaCleanTop"><span><i></i> VANTA / ONLINE STORE</span><span>EST. 2026</span></div><div class="novaCleanContent"><span class="novaCleanEyebrow">VANTA / EVERYDAY STREETWEAR</span><h1>OWN YOUR<br><em>STYLE.</em></h1><p>Өөрийн хэв маягаа ол. Өдөр бүр өмсөх дуртай загвараа эндээс сонго.</p><div class="novaCleanActions"><a href="#shop" class="novaCleanShop">БАРАА ҮЗЭХ <span>↗</span></a><a href="#novaPolicies" class="novaCleanMore">Хүргэлтийн мэдээлэл →</a></div></div></section>
