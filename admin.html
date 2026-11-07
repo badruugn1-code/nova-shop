@@ -86,6 +86,11 @@ function vantaOrganizeAdmin(){
  {key:'more',label:'⚙️ Бусад удирдлага',elements:[settings.querySelector('.novaSettingsLinks')]}
  ];
  const settingsNav=vantaCreateSubnav(settings,settingsEntries,'basic');
+ // Hidden required fields must not block saving another settings section.
+ const updateSettingsFields=()=>{for(const group of groups){for(const field of group.querySelectorAll('input,select,textarea'))field.disabled=group.hidden}};
+ settingsNav.nav.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',updateSettingsFields));
+ updateSettingsFields();
+ form.addEventListener('submit',()=>{for(const group of groups)for(const field of group.querySelectorAll('input,select,textarea'))field.disabled=false},true);
  const settingsPreview=$('novaSettingsPreview');if(settingsPreview)settingsNav.nav.after(settingsPreview);
  const orders=$('ordersTab');const ordersHeading=orders.querySelector(':scope > h2');
  const orderNav=vantaCreateSubnav(orders,[
