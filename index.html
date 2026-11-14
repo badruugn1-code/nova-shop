@@ -1322,9 +1322,9 @@ init();novaCheckChatReplies();
   width=window.innerWidth;height=window.innerHeight;
   canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);
   ctx.setTransform(dpr,0,0,dpr,0,0);
-  const counts={light:18,medium:34,heavy:55};
-  const count=Math.max(8,Math.round((counts[intensity]||34)*(width<720?.58:1)));
-  flakes=Array.from({length:count},()=>({x:random(0,width),y:random(0,height),r:random(1.2,3.2),speed:random(12,30),drift:random(-7,7),phase:random(0,6.28)}));
+  const counts={light:14,medium:26,heavy:42};
+  const count=Math.max(8,Math.round((counts[intensity]||26)*(width<720?.7:1)));
+  flakes=Array.from({length:count},()=>({x:random(0,width),y:random(0,height),r:random(5,10),speed:random(12,27),drift:random(-8,8),phase:random(0,6.28),rotation:random(0,6.28),spin:random(-.25,.25),opacity:random(.62,.98)}));
  }
  function frame(t){
   if(!active)return;
@@ -1332,12 +1332,23 @@ init();novaCheckChatReplies();
   if(t-last<32)return;
   const dt=Math.min((t-last||33)/1000,.05);last=t;
   ctx.clearRect(0,0,width,height);
-  ctx.fillStyle='rgba(246,251,255,.94)';
   for(const f of flakes){
-   f.y+=f.speed*dt;f.x+=(f.drift+Math.sin(t*.0005+f.phase)*7)*dt;
-   if(f.y>height+6){f.y=-6;f.x=random(0,width)}
-   if(f.x>width+5)f.x=-5;if(f.x< -5)f.x=width+5;
-   ctx.beginPath();ctx.arc(f.x,f.y,f.r,0,Math.PI*2);ctx.fill();
+   f.y+=f.speed*dt;f.x+=(f.drift+Math.sin(t*.0005+f.phase)*7)*dt;f.rotation+=f.spin*dt;
+   if(f.y>height+12){f.y=-12;f.x=random(0,width)}
+   if(f.x>width+12)f.x=-12;if(f.x< -12)f.x=width+12;
+   ctx.save();ctx.translate(f.x,f.y);ctx.rotate(f.rotation);
+   ctx.strokeStyle='rgba(247,252,255,'+f.opacity+')';ctx.lineWidth=f.r>7?1.15:.9;
+   ctx.lineCap='round';
+   for(let arm=0;arm<6;arm++){
+    ctx.save();ctx.rotate(arm*Math.PI/3);
+    ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(0,-f.r);
+    for(const side of [-1,1]){
+     ctx.moveTo(0,-f.r*.57);ctx.lineTo(side*f.r*.27,-f.r*.78);
+     ctx.moveTo(0,-f.r*.78);ctx.lineTo(side*f.r*.16,-f.r*.92);
+    }
+    ctx.stroke();ctx.restore();
+   }
+   ctx.restore();
   }
  }
  function sync(){
