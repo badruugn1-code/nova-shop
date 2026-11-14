@@ -1373,7 +1373,7 @@ init();novaCheckChatReplies();
   ctx.setTransform(dpr,0,0,dpr,0,0);
   const counts={light:12,medium:24,heavy:40};
   const count=Math.max(6,Math.round((counts[intensity]||24)*(width<720?.65:1)));
-  flakes=Array.from({length:count},()=>({x:random(0,width),y:random(0,height),r:random(5,11),speed:random(10,24),drift:random(-5,5),phase:random(0,6.28),rotation:random(0,6.28),spin:random(-.16,.16),opacity:random(.45,.85)}));
+  flakes=Array.from({length:count},()=>({x:random(0,width),y:random(0,height),r:random(5,11),speed:random(32,58),drift:random(-9,9),phase:random(0,6.28),rotation:random(0,6.28),spin:random(-.16,.16),opacity:random(.45,.85)}));
  }
  function frame(t){
   if(!active)return;
