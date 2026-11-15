@@ -1486,49 +1486,52 @@ init();novaCheckChatReplies();
 (function(){
  const canvas=document.getElementById('vantaWinterSnow'),ctx=canvas&&canvas.getContext('2d',{alpha:true});
  if(!ctx)return;
- const motion=window.matchMedia('(prefers-reduced-motion: reduce)');
- const saver=!!navigator.connection?.saveData;
  let enabled=true,intensity='medium',flakes=[],width=0,height=0,raf=0,last=0,active=false;
  const random=(a,b)=>a+Math.random()*(b-a);
+ // Pre-render a soft particle once; avoid per-particle blur work each frame.
+ const sprite=document.createElement('canvas');sprite.width=sprite.height=32;
+ const brush=sprite.getContext('2d');
+ if(!brush)return;
+ const glow=brush.createRadialGradient(16,16,0,16,16,16);
+ glow.addColorStop(0,'rgba(255,255,255,1)');
+ glow.addColorStop(.3,'rgba(248,250,255,.95)');
+ glow.addColorStop(.65,'rgba(240,246,255,.3)');
+ glow.addColorStop(1,'rgba(240,246,255,0)');
+ brush.fillStyle=glow;brush.fillRect(0,0,32,32);
  function resize(){
   const dpr=Math.min(window.devicePixelRatio||1,1.5);
   width=window.innerWidth;height=window.innerHeight;
   canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);
   ctx.setTransform(dpr,0,0,dpr,0,0);
-  const counts={light:12,medium:24,heavy:40};
-  const count=Math.max(6,Math.round((counts[intensity]||24)*(width<720?.65:1)));
-  flakes=Array.from({length:count},()=>({x:random(0,width),y:random(0,height),r:random(5,11),speed:random(32,58),drift:random(-9,9),phase:random(0,6.28),rotation:random(0,6.28),spin:random(-.16,.16),opacity:random(.45,.85)}));
+  const density={light:65,medium:110,heavy:170};
+  const count=Math.round((density[intensity]||110)*Math.min(1.8,Math.max(.4,width*height/1200000)));
+  flakes=Array.from({length:count},()=>{
+   const depth=Math.pow(Math.random(),1.6);
+   return {x:random(0,width),y:random(0,height),r:.8+depth*3.2,
+    speed:18+depth*54,drift:random(-4,6),phase:random(0,Math.PI*2),
+    depth,opacity:random(.28,.55)+depth*.25};
+  });
  }
- function frame(t,still=false){
-  if(!active&&!still)return;
-  if(!still)raf=requestAnimationFrame(frame);
-  if(!still&&t-last<32)return;
-  const dt=still?0:Math.min((t-last||33)/1000,.05);last=t;
+ function frame(t){
+  if(!active)return;
+  raf=requestAnimationFrame(frame);
+  if(t-last<32)return;
+  const dt=Math.min((t-last||33)/1000,.05);last=t;
   ctx.clearRect(0,0,width,height);
+  const wind=9+Math.sin(t*.00013)*11+Math.sin(t*.00037)*4;
   for(const f of flakes){
-   f.y+=f.speed*dt;f.x+=(f.drift+Math.sin(t*.0005+f.phase)*7)*dt;f.rotation+=f.spin*dt;
-   if(f.y>height+12){f.y=-12;f.x=random(0,width)}
-   if(f.x>width+12)f.x=-12;if(f.x< -12)f.x=width+12;
-   ctx.save();ctx.translate(f.x,f.y);ctx.rotate(f.rotation);
-   ctx.strokeStyle='rgba(247,246,244,'+f.opacity+')';ctx.lineWidth=f.r>8?1.15:.9;ctx.shadowBlur=0;
-   ctx.lineCap='round';
-   for(let arm=0;arm<6;arm++){
-    ctx.save();ctx.rotate(arm*Math.PI/3);
-    ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(0,-f.r);
-    for(const side of [-1,1]){
-     ctx.moveTo(0,-f.r*.57);ctx.lineTo(side*f.r*.27,-f.r*.78);
-     ctx.moveTo(0,-f.r*.78);ctx.lineTo(side*f.r*.16,-f.r*.92);
-    }
-    ctx.stroke();ctx.restore();
-   }
-   ctx.restore();
+   f.y+=f.speed*dt;
+   f.x+=(wind*(.35+f.depth)+f.drift+Math.sin(t*.0007+f.phase)*4)*dt;
+   if(f.y>height+10){f.y=-10;f.x=random(0,width)}
+   if(f.x>width+10)f.x=-10;if(f.x< -10)f.x=width+10;
+   ctx.globalAlpha=f.opacity;
+   ctx.drawImage(sprite,f.x-f.r,f.y-f.r,f.r*2,f.r*2);
   }
+  ctx.globalAlpha=1;
  }
  function sync(){
-  const should=enabled&&!document.hidden;
-  canvas.hidden=!should;
+  const should=enabled&&!document.hidden;canvas.hidden=!should;
   if(!should){active=false;cancelAnimationFrame(raf);raf=0;ctx.clearRect(0,0,width,height);return}
-  // Storefront owner explicitly requests falling snow on desktop and mobile.
   if(!active){active=true;resize();last=0;raf=requestAnimationFrame(frame)}
  }
  window.vantaSetWinterMode=function(config){
@@ -1536,12 +1539,10 @@ init();novaCheckChatReplies();
   enabled=settings.winterEnabled!==false;
   document.body.classList.toggle('vanta-winter-dark',enabled);
   intensity=['light','medium','heavy'].includes(settings.winterIntensity)?settings.winterIntensity:'medium';
-  if(active)resize();
-  sync();
+  if(active)resize();sync();
  };
  window.addEventListener('resize',()=>{if(active)resize();else sync()},{passive:true});
  document.addEventListener('visibilitychange',sync);
- if(motion.addEventListener)motion.addEventListener('change',sync);else motion.addListener(sync);
  window.vantaSetWinterMode({winterEnabled:true,winterIntensity:'medium'});
 })();
 </script></body></html>
