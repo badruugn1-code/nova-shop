@@ -1528,7 +1528,7 @@ init();novaCheckChatReplies();
   const should=enabled&&!document.hidden;
   canvas.hidden=!should;
   if(!should){active=false;cancelAnimationFrame(raf);raf=0;ctx.clearRect(0,0,width,height);return}
-  if(motion.matches||saver){active=false;cancelAnimationFrame(raf);raf=0;resize();frame(0,true);return}
+  // Storefront owner explicitly requests falling snow on desktop and mobile.
   if(!active){active=true;resize();last=0;raf=requestAnimationFrame(frame)}
  }
  window.vantaSetWinterMode=function(config){
