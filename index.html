@@ -1953,7 +1953,7 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
   function novaStartSuggestionAnimation(){if(novaSuggestionRaf||document.hidden||novaChatPanel.hidden)return;novaSuggestionLast=0;novaSuggestionRaf=requestAnimationFrame(novaAnimateSuggestions)}
   let novaSuggestionRaf=0;
   document.addEventListener('visibilitychange',novaStartSuggestionAnimation);
-  $('novaHelpLink').addEventListener('click',novaStartSuggestionAnimation);
+  $('novaHelpLink').addEventListener('click',()=>requestAnimationFrame(novaStartSuggestionAnimation));
 }
 
 $('novaHelpLink').onclick=()=>{let open=novaChatPanel.hidden;novaChatPanel.hidden=!open;$('novaHelpLink').setAttribute('aria-expanded',String(open));if(open){novaCheckChatReplies();novaLoadFaq();if(!novaChatMessages.children.length)novaChatBubble('Сайн байна уу! 👋 VANTA SHOP-д тавтай морил. Доорх сонголтуудаас дарж болно, эсвэл асуултаа шууд бичээрэй. Админтай холбогдох бол «Админтай чатлах»-ыг сонгоорой. 💚');if(!window.matchMedia('(max-width:720px)').matches)$('novaChatInput').focus()}};
@@ -1985,9 +1985,9 @@ init();novaCheckChatReplies();
  glow.addColorStop(1,'rgba(240,246,255,0)');
  brush.fillStyle=glow;brush.fillRect(0,0,32,32);
  function resize(){
-  const dpr=Math.min(window.devicePixelRatio||1,width<=720?1.15:1.5);
   width=window.innerWidth;height=window.innerHeight;
   const mobile=width<=720;
+  const dpr=Math.min(window.devicePixelRatio||1,mobile?1.15:1.5);
   canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);
   ctx.setTransform(dpr,0,0,dpr,0,0);
   const density={light:65,medium:110,heavy:170};
