@@ -1711,6 +1711,57 @@ padding:6px 7px!important;max-width:calc(100% - 49px)!important;border-radius:7p
 #shop .grid .product .vantaProductStatus :is(.vantaStockInfo,.preorderEta){
 font-size:9px!important;padding:5px 7px!important}
 }
+</style><style id="vanta-smooth-interactions-2026">
+/* VANTA motion system: restrained, performant and reduced-motion friendly. */
+:root{--vanta-ease:cubic-bezier(.22,1,.36,1);--vanta-motion-fast:160ms;--vanta-motion-medium:260ms;--vanta-motion-slow:380ms}
+html{scroll-behavior:smooth}
+body :is(button,.btn,a,[role="button"],summary){touch-action:manipulation}
+body :is(button,.btn,a,[role="button"],summary):not(:disabled){
+transition-property:background-color,border-color,color,opacity,box-shadow,filter!important;
+transition-duration:var(--vanta-motion-fast)!important;
+transition-timing-function:ease-out!important
+}
+body :is(input,select,textarea){
+transition:background-color var(--vanta-motion-fast) ease,border-color var(--vanta-motion-fast) ease,box-shadow var(--vanta-motion-fast) ease!important
+}
+body :is(button,.btn,a,summary):active:not(:disabled){filter:brightness(.95)!important}
+body #shop .grid .product{transition:background-color var(--vanta-motion-medium) ease,border-color var(--vanta-motion-medium) ease!important}
+body #shop .grid .product .photo img{transition:transform 480ms var(--vanta-ease)!important}
+@media(hover:hover) and (pointer:fine){
+body #shop .grid .product .photo:hover img{transform:scale(1.035)!important}
+body #shop .grid .product:hover{border-color:#716a64!important}
+body.vanta-winter-dark #shop .grid .product:hover{border-color:#716a64!important}
+body .vantaRetailCollection:hover{filter:brightness(.97)!important}
+}
+body .vantaRetailCollection{transition:background-color 260ms var(--vanta-ease),border-color 260ms var(--vanta-ease),filter 260ms ease!important}
+body .drawer{transition:transform 320ms var(--vanta-ease)!important;will-change:transform}
+body .vantaMobileDrawer{transition:transform 300ms var(--vanta-ease),visibility 300ms ease!important}
+body .shade.open,body .vantaMenuBackdrop:not([hidden]){animation:vantaOverlayFade 210ms ease-out both}
+@keyframes vantaOverlayFade{from{opacity:0}to{opacity:1}}
+body :is(#authOverlay,#novaVipOverlay,#vantaOrderStatusModal):not([hidden]) .authCard,
+body #vantaOrderStatusModal:not([hidden]) .vantaOrderStatusCard{
+animation:vantaSheetEnter 290ms var(--vanta-ease) both
+}
+@keyframes vantaSheetEnter{from{opacity:.65;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+body .novaChatPanel:not([hidden]){animation:vantaPanelEnter 240ms var(--vanta-ease) both}
+@keyframes vantaPanelEnter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+body :is(#shop .filter,#shop #novaFilterToggle,#shop .add,#checkPromo,#submitOrder,#authSubmit){transition:background-color 180ms ease,border-color 180ms ease,color 180ms ease!important}
+body .novaMobileNav :is(button,a){transition:background-color 190ms ease,color 190ms ease!important}
+body .vantaMobileTop :is(button,a){transition:color 180ms ease,opacity 180ms ease!important}
+body #novaHelpLink{transition:background-color 200ms ease,border-color 200ms ease,opacity 200ms ease!important}
+body :is(.novaPromoBox,.novaBagSummary,.novaPolicyGrid article,.vantaFacebookCard){transition:border-color 220ms ease,background-color 220ms ease!important}
+body :is(.drawer,.vantaMobileDrawer,.authCard,.vantaOrderStatusCard){-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+@media(max-width:720px){
+body .drawer{transition:transform 280ms var(--vanta-ease)!important}
+body .vantaMobileDrawer{transition:transform 260ms var(--vanta-ease),visibility 260ms ease!important}
+body #shop .grid .product .photo img{transition:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto!important}
+body *,body *::before,body *::after{scroll-behavior:auto!important;animation:none!important;transition-duration:.01ms!important;transition-delay:0ms!important}
+body :is(.drawer,.vantaMobileDrawer){will-change:auto!important}
+body #shop .grid .product .photo img{transform:none!important}
+}
 </style></head><body><canvas id="vantaWinterSnow" aria-hidden="true" hidden></canvas><div class="novaScrollProgress" id="novaScrollProgress" aria-hidden="true"></div><div class="top" id="announcement">VANTA SHOP · ШИНЭ КОЛЛЕКЦ · ЗАХИАЛГААР 9–14 ХОНОГ</div><header class="nav"><a href="#" class="brand" id="brand">VANTA SHOP</a><nav class="navlinks"><a href="#shop">SHOP ALL</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav><button id="wishlistBtn" class="iconbtn wishlistNav" type="button" aria-label="Дуртай бараанууд">♡ <span id="wishlistCount">0</span></button><button id="novaVipNavBtn" class="iconbtn novaVipNavBtn" type="button"><span aria-hidden="true">♔</span> VIP CLUB</button><button id="accountBtn" class="iconbtn" type="button">НЭВТРЭХ</button><button id="cartBtn" class="iconbtn" aria-label="Сагс нээх">BAG (<span id="count">0</span>)</button></header><div class="vantaMobileTop" id="vantaMobileTop"><button type="button" id="vantaMenuOpen" aria-label="Цэс нээх">☰</button><a href="#" aria-label="Нүүр хуудас">VANTA <span>SHOP</span></a><button type="button" id="vantaMobileSearch" aria-label="Бараа хайх">⌕</button></div><div class="vantaMenuBackdrop" id="vantaMenuBackdrop" hidden></div><aside class="vantaMobileDrawer" id="vantaMobileDrawer" aria-label="Дэлгүүрийн цэс" aria-hidden="true"><div class="vantaDrawerHeader"><b>VANTA SHOP</b><button type="button" id="vantaMenuClose" aria-label="Цэс хаах">×</button></div><div class="vantaDrawerBody"><small>АНГИЛАЛ</small><button type="button" data-vanta-menu="all">▣ &nbsp; Бүх бараа</button><details id="vantaDrawerCategories"><summary>▦ &nbsp; Ангилал</summary><div id="vantaDrawerCategoryList"></div></details><small>БУСАД</small><button type="button" data-vanta-menu="new">✧ &nbsp; Шинэ ирсэн</button><button type="button" data-vanta-menu="sale">% &nbsp; Хямдрал</button><button type="button" data-vanta-menu="favorite">♡ &nbsp; Дуртай бараа</button><button type="button" data-vanta-menu="vip">♛ &nbsp; VIP CLUB</button><button type="button" data-vanta-menu="account">♙ &nbsp; Миний VANTA</button></div></aside><nav class="novaMobileNav" aria-label="Утасны үндсэн цэс"><a href="#" class="novaNavShop vantaNavHome" aria-label="Нүүр"><span>⌂</span><b>Нүүр</b></a><button type="button" id="mobileFavorites"><span>♡</span><b>Дуртай</b></button><button type="button" id="mobileCart"><span>▣</span><b>Сагс</b><small id="mobileCartCount">0</small></button><button type="button" id="mobileVipBtn" class="vantaHiddenVipNav"><span>♧</span><b>VIP</b></button><button type="button" id="vantaOrderStatusNav"><span>☷</span><b>Захиалга</b></button><button type="button" id="mobileAccount"><span>♙</span><b>Миний VANTA</b></button></nav><div class="novaTrustBar"><span>✦ VANTA SHOP</span> · Таны стиль, таны сонголт · Онлайн захиалга</div><main>
 <section class="novaCleanIntro vantaHeroV3" aria-label="VANTA SHOP танилцуулга"><div class="novaCleanTop"><span><i></i> VANTA / NEW SEASON</span><span>EST. 2026</span></div><div class="vantaHeroLayout"><div class="novaCleanContent"><span class="novaCleanEyebrow"><span class="vantaHeroDot"></span> THE EVERYDAY EDIT / 2026</span><h1>WEAR<br><em>YOUR</em><br>VIBE<span class="vantaHeroPeriod">.</span></h1><p>Зүгээр нэг хувцас биш. Чиний өдөр бүрийн стиль. Өөртөө тохирох загвараа VANTA-аас олоорой.</p><div class="novaCleanActions"><a href="#shop" class="novaCleanShop">КОЛЛЕКЦ ҮЗЭХ <span aria-hidden="true">↗</span></a><a href="#novaPolicies" class="novaCleanMore">Хүргэлт &amp; захиалга <span aria-hidden="true">↗</span></a></div><div class="vantaHeroFoot"><span>01 / DISCOVER YOUR STYLE</span><span>SCROLL TO EXPLORE ↓</span></div></div><div class="vantaHeroVisual" aria-hidden="true"><div class="vantaHeroVisualImage"></div><div class="vantaHeroVisualCaption"><span>VANTA / DAILY UNIFORM</span><span>EST. 2026 — MN</span></div></div></div></section>
 <section class="novaHowItWorks novaStepsV2" aria-label="Хэрхэн захиалах вэ"><div class="novaStep"><span class="novaStepNumber">01</span><div class="novaStepIcon" aria-hidden="true">⌕</div><div class="novaStepText"><small>АЛХАМ 01</small><p>Бараагаа сонгоно</p><span>Таалагдсан загвараа олоорой</span></div></div><div class="novaStep"><span class="novaStepNumber">02</span><div class="novaStepIcon" aria-hidden="true">＋</div><div class="novaStepText"><small>АЛХАМ 02</small><p>Сагсанд хийнэ</p><span>Размер, өнгөө тохируулна</span></div></div><div class="novaStep"><span class="novaStepNumber">03</span><div class="novaStepIcon" aria-hidden="true">✓</div><div class="novaStepText"><small>АЛХАМ 03</small><p>Захиалгаа илгээнэ</p><span>Мэдээллээ бөглөөд баталгаажуулна</span></div></div></section>
